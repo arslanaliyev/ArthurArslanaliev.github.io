@@ -1,0 +1,13 @@
+{
+  "name": "aggregator",
+  "version": "0.0.0",
+  "authors": [
+    "ArthurArslanaliev <aarslanaliyev@spscommerce.com>"
+  ],
+  "description": "the simple aggregator to get your favourite feeds",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "underscore": "~1.8.1"
+  }
+}

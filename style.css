@@ -1,0 +1,65 @@
+html, body {
+    font-size: 14px;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.main-block {
+    display: inline-block;
+}
+
+#left-menu {
+    border-right: 1px solid #dddddd;
+    width: 200px;
+    background-color: #191818;
+    vertical-align: top;
+    height: 100vh;
+}
+
+#left-menu h3 {
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+#left-menu ul {
+    list-style: none;
+    padding-left: 0;
+    color: #dddddd;
+}
+
+#left-menu ul li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#feeds {
+    padding: 50px 0 0 50px;
+}
+
+.feed {
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 1em;
+}
+
+.feed .title {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.feed .snippet {
+    display: inline-block;
+}
+
+.feed a {
+    text-decoration: none;
+}
+
+.feed a:hover {
+    text-decoration: underline;
+    color: orangered;
+}
+
+
+
