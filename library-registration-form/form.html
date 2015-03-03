@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Library registration form</title>
+    <link rel="stylesheet" href="form.css">
+    <script type="application/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="form.js"></script>
+</head>
+<body>
+<div id="form">
+    <div id="heading">Library Registration Form</div>
+    <div class="fields">
+        <div>
+            <label for="firstName">First Name *</label><br>
+            <input data-mandatory type="text" id="firstName">
+            <div class="message">The error</div>
+        </div>
+        <div>
+            <label for="lastName">Last Name *</label><br>
+            <input data-mandatory type="text" id="lastName">
+            <div class="message">The error</div>
+        </div>
+    </div>
+
+    <button>Validate</button>
+</div>
+</body>
+</html>

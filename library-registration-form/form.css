@@ -1,0 +1,43 @@
+#form {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    border: 1px solid #dddddd;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#heading {
+    text-align: center;
+    height: 40px;
+    padding-top: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+
+.fields {
+    padding: 20px;
+}
+
+.fields > div {
+    display: inline-block;
+}
+
+.fields > div:last-of-type {
+    margin-left: 40px;
+}
+
+.warning {
+    border-color: red;
+}
+
+.message {
+    visibility: hidden;
+    color: red;
+}
+
+
+

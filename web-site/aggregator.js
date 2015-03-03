@@ -6,11 +6,14 @@
             dataSelector: function (data) {
                 return data['responseData']['feed']['entries'];
             },
+            filter: function(feeds) {
+                return feeds;
+            },
             template: '<div class="feed">' +
                 '<div>' +
                 '<span class="title">%title%</span><span class="date">%publishedDate%</span>' +
                 '</div>' +
-                '<div><p class="snippet">%contentSnippet%</p><a href="%link%">more</a></div></div>'
+                '<div><p class="snippet">%contentSnippet%</p><a href="%link%" target="_blank">more</a></div></div>'
         },
         yahoo: {
             url: 'http://pipes.yahooapis.com/pipes/pipe.run?_id=giWz8Vc33BG6rQEQo_NLYQ&_render=json',
@@ -18,11 +21,16 @@
             dataSelector: function (data) {
                 return data['value']['items'];
             },
+            filter: function (feeds) {
+                return _.reject(feeds, function(feed) {
+                    return feed['media:content'];
+                });
+            },
             template: '<div class="feed">' +
                 '<div>' +
                 '<span class="title">%title%</span><span class="date">%pubDate%</span>' +
                 '</div>' +
-                '<div><p class="snippet"></p><a href="%link%">more</a></div></div>'
+                '<div><p class="snippet">%description%</p><a href="%link%" target="_blank">more</a></div></div>'
         }
     };
 
@@ -63,7 +71,7 @@
     var pushFeedsInto = function ($container, feeds, template) {
         var out = [];
 
-        _.each(feeds, function (entry) {
+        _.each(_.first(feeds, 8), function (entry) {
             console.log(entry);
             out.push(fillInTemplate(template, entry));
         });
@@ -72,16 +80,17 @@
     };
 
     var clickHandler = function () {
-        var type = $(this).data('type');
+        var type = $(this).data('type'),
+            source = sources[type];
 
         var ajaxOptions = {
-            url: sources[type].url,
-            dataType: sources[type].dataType
+            url: source.url,
+            dataType: source.dataType
         };
 
-        $.when(willGetSomeFeeds(ajaxOptions, sources[type].dataSelector)).then(function (feeds) {
+        $.when(willGetSomeFeeds(ajaxOptions, source.dataSelector)).then(function (feeds) {
             var container = $('#feeds');
-            pushFeedsInto(container, feeds, sources[type].template);
+            pushFeedsInto(container, source.filter(feeds), sources[type].template);
         });
     };
 

@@ -1,6 +1,7 @@
 html, body {
     font-size: 14px;
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 100%;
 }
 
 .main-block {
@@ -12,7 +13,7 @@ html, body {
     width: 200px;
     background-color: #191818;
     vertical-align: top;
-    height: 100vh;
+    min-height: 100%;
 }
 
 #left-menu h3 {
@@ -40,6 +41,7 @@ html, body {
 .feed {
     border-bottom: 1px solid #dddddd;
     margin-bottom: 1em;
+    max-width: 800px;
 }
 
 .feed .title {
