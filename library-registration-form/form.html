@@ -5,6 +5,7 @@
     <title>Library registration form</title>
     <link rel="stylesheet" href="form.css">
     <script type="application/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="../bower_components/underscore/underscore-min.js"></script>
     <script type="application/javascript" src="form.js"></script>
 </head>
 <body>
@@ -14,16 +15,52 @@
         <div>
             <label for="firstName">First Name *</label><br>
             <input data-mandatory type="text" id="firstName">
+
             <div class="message">The error</div>
         </div>
         <div>
             <label for="lastName">Last Name *</label><br>
             <input data-mandatory type="text" id="lastName">
+
             <div class="message">The error</div>
         </div>
     </div>
+    <div class="fields">
+        <div>
+            <input type="radio" name="sex" value="male" checked>Male
+            <input type="radio" name="sex" value="female">Female
+        </div>
+        <div>
+            <label for="country">Country</label><br>
+            <input type="text" id="country">
+        </div>
+        <div>
+            <label for="city">City</label><br>
+            <input type="text" id="city">
+        </div>
+    </div>
+    <div class="fields">
+        <div>
+            <label for="email">Email *</label><br>
+            <input data-email data-mandatory type="text" id="email">
 
-    <button>Validate</button>
+            <div class="message">The error</div>
+        </div>
+        <div>
+            <label for="weekly-notifications">I want to receive weekly library news</label>
+            <input type="checkbox" id="weekly-notifications"/>
+
+            <div class="message">The error</div>
+        </div>
+    </div>
+    <div class="fields">
+        <div>
+            <label for="birthYear">Year of birth</label>
+            <select id="birthYear">
+            </select>
+        </div>
+    </div>
+    <button style="margin-top: 20px">Validate</button>
 </div>
 </body>
 </html>

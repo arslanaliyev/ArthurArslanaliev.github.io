@@ -19,15 +19,19 @@
 }
 
 .fields {
-    padding: 20px;
+    padding: 20px 20px 0 20px
 }
 
 .fields > div {
     display: inline-block;
 }
 
+.fields > div {
+    margin-right: 40px;
+}
+
 .fields > div:last-of-type {
-    margin-left: 40px;
+    margin-right: 0;
 }
 
 .warning {
