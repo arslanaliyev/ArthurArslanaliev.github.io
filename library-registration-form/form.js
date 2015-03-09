@@ -24,17 +24,29 @@
         }
     };
 
-    var fillYearSelect = function (select) {
-        var start = 1930,
-            stop = new Date().getFullYear(),
-            years = _.range(start, stop),
-            options = [];
+    var fillSelect = function (select, options) {
+        var opts = [];
 
-        _.each(years, function(year) {
-            options.push('<option value="' + year + '">' + year +  '</option>')
+        _.each(options, function (option) {
+            opts.push('<option value="' + option + '">' + option + '</option>')
         });
 
-        $(select).html(options.join());
+        $(select).html(opts.join());
+    };
+
+    var fillYearSelect = function (select) {
+        var years = _.range(1930, new Date().getFullYear());
+        fillSelect(select, years);
+    };
+
+    var fillMonthSelect = function (select) {
+        var months = _.range(1, 13);
+        fillSelect(select, months);
+    };
+
+    var fillDaySelect = function (numberOfDays, select) {
+        var days = _.range(1, numberOfDays + 1);
+        fillSelect(select, days);
     };
 
     var daysInMonth = function (month, year) {
@@ -42,8 +54,12 @@
     };
 
     $(document).ready(function () {
+        var birthSelect = $('#birthYear'),
+            monthSelect = $('#month');
 
-        fillYearSelect($('#birthYear'));
+        fillYearSelect(birthSelect);
+
+        fillMonthSelect(monthSelect);
 
         $('button').click(function () {
             $.each($('input'), function (_, field) {
@@ -57,6 +73,21 @@
             });
         });
 
+        birthSelect.change(function () {
+            var year = $(this).find(':selected').text(),
+                month = $('#month').find(':selected').text();
+
+            fillDaySelect(daysInMonth(month, year), $('#day'));
+        });
+
+        monthSelect.change(function () {
+            var year = $('#birthYear').find(':selected').text(),
+                month = $(this).find(':selected').text();
+
+            fillDaySelect(daysInMonth(month, year), $('#day'));
+        });
+
+        monthSelect.change();
     });
 
     $.fn.showWarning = function (msg) {
