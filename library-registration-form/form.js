@@ -61,7 +61,7 @@
 
         fillMonthSelect(monthSelect);
 
-        $('button').click(function () {
+        $('#register').click(function () {
             $.each($('input'), function (_, field) {
                 var rule = $(field).data();
                 if (rule.hasOwnProperty('mandatory')) {
@@ -71,6 +71,36 @@
                     checkEmail(field);
                 }
             });
+        });
+
+        $('#clear').click(function() {
+            $.each($('input'), function(_, field) {
+                var type = $(field).attr('type');
+                if (type === 'checkbox') {
+                    $(field).prop('checked', false).change()
+                } else if (type === 'text') {
+                    $(field).val('').change().hideWarning();
+                }
+            });
+
+            $.each($('select'), function(_, select) {
+                $(select).val($(select[0]).val());
+            });
+        });
+
+        $('#university-check').change(function () {
+            var checked = $(this).prop('checked'),
+                el = $('#university-name, #university-degree');
+
+            if (checked) {
+                el.prop('disabled', false);
+            } else {
+                el.prop('disabled', true);
+            }
+        });
+
+        $('input:text').keydown(function() {
+            $(this).hideWarning();
         });
 
         birthSelect.change(function () {

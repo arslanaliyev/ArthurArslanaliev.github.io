@@ -1,0 +1,71 @@
+#container {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#controls {
+    height: 20px;
+    padding: 20px;
+}
+
+#controls div {
+    display: inline-block;
+}
+
+#controls div:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+#textarea {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    height: 300px;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+    width: 430px;
+}
+
+.slateGrey {
+    background-color: #1F282C;
+}
+
+.plum {
+    background-color: #9B4B87;
+}
+
+.emerald {
+    background-color: #377D6E;
+}
+
+.yellow {
+    background-color: #FF9632;
+}
+
+.blue {
+    background-color: #0079A5
+}
+
+#italic, #bold {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#italic:hover, #bold:hover {
+    outline: 1px solid #0079A5;
+}
+
+#bold {
+    font-size: 20px;
+    font-style: bold;
+}
+

@@ -43,5 +43,13 @@
     color: red;
 }
 
+#buttons {
+    height: 50px;
+    text-align: center;
+    margin-top: 150px;
+}
 
+#buttons button {
+
+}
 

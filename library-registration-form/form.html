@@ -70,7 +70,36 @@
             </select>
         </div>
     </div>
-    <button style="margin-top: 20px">Validate</button>
+    <div class="fields">
+        <div>
+            <label for="university-check">I'm studying at university</label>
+            <input type="checkbox" id="university-check"/>
+
+            <div class="message"></div>
+        </div>
+        <div>
+            <label for="university-name">University</label><br/>
+            <input type="text" id="university-name" disabled/>
+
+            <div class="message"></div>
+        </div>
+        <div>
+            <label for="university-degree">Degree</label><br/>
+            <select id="university-degree" disabled>
+                <option value="no-degree">No Degree</option>
+                <option value="bachelor">Bachelor</option>
+                <option value="specialist">Specialist</option>
+                <option value="master">Master</option>
+            </select>
+
+            <div class="message"></div>
+
+        </div>
+    </div>
+    <div id="buttons">
+        <button id="register">Register</button>
+        <button id="clear">Clear Form</button>
+    </div>
 </div>
 </body>
 </html>
