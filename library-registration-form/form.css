@@ -18,7 +18,7 @@
     border-bottom: 1px solid;
 }
 
-.fields {
+.fields, .summary-fields {
     padding: 20px 20px 0 20px
 }
 
@@ -26,7 +26,7 @@
     display: inline-block;
 }
 
-.fields > div {
+.fields > div, .summary-fields {
     margin-right: 40px;
 }
 
@@ -49,7 +49,7 @@
     margin-top: 150px;
 }
 
-#buttons button {
-
+.summary-fields > div {
+    margin-top: 10px;
 }
 

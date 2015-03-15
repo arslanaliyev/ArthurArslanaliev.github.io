@@ -26,13 +26,17 @@
     -moz-appearance: textfield-multiline;
     -webkit-appearance: textarea;
     border: 1px solid gray;
-    font: medium -moz-fixed;
-    font: -webkit-small-control;
+    font-size: 16px;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     height: 300px;
     overflow: auto;
     padding: 2px;
     resize: both;
     width: 430px;
+}
+
+#font-color {
+    width: 50px;
 }
 
 .slateGrey {

@@ -3,7 +3,8 @@
     'use strict';
 
     var message = '.message',
-        warning = 'warning';
+        warning = 'warning',
+        key = 'libraryForm';
 
     var checkMandatory = function (field) {
         var value = $.trim($(field).val());
@@ -26,11 +27,9 @@
 
     var fillSelect = function (select, options) {
         var opts = [];
-
         _.each(options, function (option) {
             opts.push('<option value="' + option + '">' + option + '</option>')
         });
-
         $(select).html(opts.join());
     };
 
@@ -53,6 +52,50 @@
         return new Date(year, month, 0).getDate();
     };
 
+    var validate = function () {
+        $.each($('input'), function (_, field) {
+            var rule = $(field).data();
+            if (rule.hasOwnProperty('mandatory')) {
+                checkMandatory(field);
+            }
+            if (rule.hasOwnProperty('email')) {
+                checkEmail(field);
+            }
+        });
+    };
+
+    var getInputData = function (input) {
+        if ($(input).attr('type') === 'checkbox') {
+            return $(input).prop('checked');
+        }
+        return $(input).val();
+    };
+
+    var getFormData = function () {
+        var form = [];
+
+        $.each($('.fields > div'), function (_, field) {
+            var label = $(field).find('label');
+            var name = $(label).text().replace(/\*/g, '').trim();
+            var obj = {};
+            obj['key'] = name;
+            obj['value'] = getInputData($(label).nextAll('input, select'));
+            form.push(obj);
+        });
+
+        return form;
+    };
+
+    var formIsValid = function () {
+        var fields = $('input');
+        for (var i = 0; i < fields.length; i++) {
+            if ($(fields[i]).isWarningShown()) {
+                return false;
+            }
+        }
+        return true;
+    };
+
     $(document).ready(function () {
         var birthSelect = $('#birthYear'),
             monthSelect = $('#month');
@@ -62,19 +105,16 @@
         fillMonthSelect(monthSelect);
 
         $('#register').click(function () {
-            $.each($('input'), function (_, field) {
-                var rule = $(field).data();
-                if (rule.hasOwnProperty('mandatory')) {
-                    checkMandatory(field);
-                }
-                if (rule.hasOwnProperty('email')) {
-                    checkEmail(field);
-                }
-            });
+            validate();
+            if (!formIsValid()) {
+                return;
+            }
+            localStorage.setItem(key, JSON.stringify(getFormData()));
+            window.open('summary.html', '_blank');
         });
 
-        $('#clear').click(function() {
-            $.each($('input'), function(_, field) {
+        $('#clear').click(function () {
+            $.each($('input'), function (_, field) {
                 var type = $(field).attr('type');
                 if (type === 'checkbox') {
                     $(field).prop('checked', false).change()
@@ -83,7 +123,7 @@
                 }
             });
 
-            $.each($('select'), function(_, select) {
+            $.each($('select'), function (_, select) {
                 $(select).val($(select[0]).val());
             });
         });
@@ -99,7 +139,7 @@
             }
         });
 
-        $('input:text').keydown(function() {
+        $('input:text').keydown(function () {
             $(this).hideWarning();
         });
 
@@ -140,4 +180,3 @@
     };
 
 })();
-
