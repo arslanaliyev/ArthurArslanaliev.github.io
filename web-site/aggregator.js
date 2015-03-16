@@ -1,4 +1,7 @@
 (function () {
+
+    'use strict';
+
     var sources = {
         google: {
             url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=8&q=http%3A%2F%2Fnews.google.com%2Fnews%3Foutput%3Drss',
@@ -72,7 +75,6 @@
         var out = [];
 
         _.each(_.first(feeds, 8), function (entry) {
-            console.log(entry);
             out.push(fillInTemplate(template, entry));
         });
 
