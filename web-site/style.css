@@ -9,33 +9,50 @@ html, body {
 }
 
 #left-menu {
-    border-right: 1px solid #dddddd;
     width: 200px;
-    background-color: #191818;
     vertical-align: top;
     min-height: 100%;
+
 }
 
 #left-menu h3 {
-    border-bottom: 1px solid #ffffff;
-    color: #ffffff;
+    border-bottom: 1px solid #dddddd;
     text-transform: uppercase;
     font-weight: 400;
+    text-align: center;
+    padding-bottom: 10px;
+    letter-spacing: 15px;
 }
 
 #left-menu ul {
     list-style: none;
-    padding-left: 0;
-    color: #dddddd;
+    padding: 0;
 }
 
 #left-menu ul li {
-    margin-bottom: 10px;
     cursor: pointer;
+    height: 30px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+#left-menu ul li:hover {
+    color: white;
+    background: #dddddd;
 }
 
 #feeds {
-    padding: 50px 0 0 50px;
+    padding: 50px 10px 0 50px;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0%, rgba(252, 252, 252, 1) 5%, rgba(252, 252, 252, 1) 78%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(0%, rgba(245, 245, 245, 1)), color-stop(5%, rgba(252, 252, 252, 1)), color-stop(78%, rgba(252, 252, 252, 1)));
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0%, rgba(252, 252, 252, 1) 5%, rgba(252, 252, 252, 1) 78%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0%, rgba(252, 252, 252, 1) 5%, rgba(252, 252, 252, 1) 78%);
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0%, rgba(252, 252, 252, 1) 5%, rgba(252, 252, 252, 1) 78%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0%, rgba(252, 252, 252, 1) 5%, rgba(252, 252, 252, 1) 78%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=1);
 }
 
 .feed {
