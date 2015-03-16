@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="editor.css">
     <script type="application/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="application/javascript" src="../bower_components/underscore/underscore-min.js"></script>
+    <script type="application/javascript" src="vendor/jquery-selection.js"></script>
+    <script type="application/javascript" src="cursorHelper.js"></script>
     <script type="application/javascript" src="editor.js"></script>
 </head>
 <body>
@@ -13,11 +15,11 @@
     <div id="controls">
         <div>
             <select id="font-family">
-                <option value="palatino">Palatino Linotype</option>
-                <option value="tahoma">Tahoma</option>
+                <option value="helvetica">Helvetica Neue</option>
+                <option value="papyrus">Papyrus</option>
                 <option value="century">Century Gothic</option>
-                <option value="lucida">Lucida Sans Unicode</option>
-                <option value="copperplate">Copperplate</option>
+                <option value="rockwell">Rockwell</option>
+                <option value="consolas">Consolas</option>
             </select>
         </div>
         <div>
@@ -32,13 +34,10 @@
         <div id="italic"><span>I</span></div>
         <div id="bold"><span>B</span></div>
     </div>
-    <div id="textarea" contenteditable>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Integer malesuada ex ac elit volutpat suscipit.
-        Donec elementum eu turpis nec scelerisque.
-        Phasellus eget turpis bibendum, imperdiet urna quis, consectetur ante.
-        Duis in laoreet enim, vitae tempor odio. Mauris blandit posuere molestie.
-        Phasellus id nisl nec magna consequat gravida eu in tellus.
-        Morbi eu ex metus. Vivamus pulvinar dolor non aliquam sollicitudin.</div>
+    <div id="textarea" contenteditable>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.</div>
 </div>
 </body>
 </html>

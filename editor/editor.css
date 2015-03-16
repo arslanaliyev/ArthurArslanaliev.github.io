@@ -27,7 +27,7 @@
     -webkit-appearance: textarea;
     border: 1px solid gray;
     font-size: 16px;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
     height: 300px;
     overflow: auto;
     padding: 2px;
@@ -68,8 +68,20 @@
     outline: 1px solid #0079A5;
 }
 
+#italic {
+    font-style: italic;
+}
+
+#italic span, #bold span {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 #bold {
     font-size: 20px;
-    font-style: bold;
+    font-weight: bold;
 }
 
